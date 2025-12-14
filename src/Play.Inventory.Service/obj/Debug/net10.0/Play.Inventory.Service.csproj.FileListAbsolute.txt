@@ -48,3 +48,4 @@ C:\Projects-Study\Projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\n
 C:\Projects-Study\Projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net10.0\Play.Inventory.Service.pdb
 C:\Projects-Study\Projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net10.0\Play.Inventory.Service.genruntimeconfig.cache
 C:\Projects-Study\Projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net10.0\ref\Play.Inventory.Service.dll
+C:\Projects-Study\Projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net10.0\Play.Inventory.Service.sourcelink.json

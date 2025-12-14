@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Play.Common;
+using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Entities;
 namespace Play.Inventory.Service.Controllers
 {
@@ -8,10 +10,12 @@ namespace Play.Inventory.Service.Controllers
     public class ItemsController : ControllerBase
     {
         private readonly Play.Common.IRepository<InventoryItem> itemsRepository;
+        private readonly CatalogClient catalogClient;
 
-        public ItemsController(Play.Common.IRepository<InventoryItem> itemsRepository)
+        public ItemsController(Play.Common.IRepository<InventoryItem> itemsRepository, CatalogClient catalogClient)
         {
             this.itemsRepository = itemsRepository;
+            this.catalogClient = catalogClient;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<InventoryItemDto>>> GetAsync(Guid userId)
@@ -20,9 +24,19 @@ namespace Play.Inventory.Service.Controllers
             {
                 return BadRequest();
             }
-            var items = (await itemsRepository.GetAllAsync(item => item.UserId == userId))
-                       .Select(item => item.AsDto());
-            return Ok(items);
+            // var items = (await itemsRepository.GetAllAsync(item => item.UserId == userId))
+            //            .Select(item => item.AsDto());
+            // return Ok(items);
+
+            var catalogItems = await catalogClient.GetCatalogItemsAsync(); //get all catalogItems
+            var inventoryItemEntities = await itemsRepository.GetAllAsync(item => item.UserId == userId); //getInventoryITems by userid
+            var InventoryItemDtos = inventoryItemEntities.Select(inventoryItem =>
+            {
+                var catalogItem = catalogItems.Single(catalogItem => catalogItem.Id == inventoryItem.CategoryItemId);
+                return inventoryItem.AsDto(catalogItem.Name, catalogItem.Description);
+            });
+            return Ok(InventoryItemDtos);
+
         }
         [HttpPost]
         public async Task<ActionResult> PostAsync(GrantItemsDto grantItemsDto)
