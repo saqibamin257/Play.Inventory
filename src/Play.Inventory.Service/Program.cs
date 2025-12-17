@@ -20,8 +20,10 @@ builder.Services.AddOpenApi();
 
 Play.Common.MongoDB.Extensions.AddMongo(builder.Services)
                               .AddMongoRepository<InventoryItem>("inventoryitems")
-                              .AddMongoRepository<InventoryItem>("catalogitems") //table for catalogitems, whose data will be generated inventory service listen the message of catalogservice
+                              .AddMongoRepository<CatalogItem>("catalogitems") //table for catalogitems, whose data will be generated inventory service listen the message of catalogservice
                               .AddMassTransitWithRabbitMq();
+
+
 // builder.Services.AddHttpClient<CatalogClient>(client =>
 // {
 //     client.BaseAddress = new Uri("https://localhost:7293");

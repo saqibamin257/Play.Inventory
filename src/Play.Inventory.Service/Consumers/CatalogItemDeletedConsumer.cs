@@ -21,7 +21,7 @@ namespace CatalogItemUpdatedConsumer
             {
                 return;
             }
-            await repository.RemoveAsync(item.Id);
+            await repository.RemoveAsync(message.ItemId);
         }
     }
 }
