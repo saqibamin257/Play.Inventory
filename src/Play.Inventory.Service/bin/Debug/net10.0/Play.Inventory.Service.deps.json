@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "10.0.0",
           "Microsoft.Extensions.Http.Polly": "10.0.1",
-          "Play.Common": "1.0.0",
+          "Play.Catalog.Contracts": "1.0.0",
+          "Play.Common": "1.0.1",
           "Swashbuckle": "5.6.0",
           "Swashbuckle.AspNetCore": "10.0.1"
         },
@@ -23,6 +24,37 @@
           "lib/net5.0/DnsClient.dll": {
             "assemblyVersion": "1.6.1.0",
             "fileVersion": "1.6.1.0"
+          }
+        }
+      },
+      "MassTransit/8.5.7": {
+        "dependencies": {
+          "MassTransit.Abstractions": "8.5.7"
+        },
+        "runtime": {
+          "lib/net10.0/MassTransit.dll": {
+            "assemblyVersion": "8.5.7.0",
+            "fileVersion": "8.5.7.0"
+          }
+        }
+      },
+      "MassTransit.Abstractions/8.5.7": {
+        "runtime": {
+          "lib/net10.0/MassTransit.Abstractions.dll": {
+            "assemblyVersion": "8.5.7.0",
+            "fileVersion": "8.5.7.0"
+          }
+        }
+      },
+      "MassTransit.RabbitMQ/8.5.7": {
+        "dependencies": {
+          "MassTransit": "8.5.7",
+          "RabbitMQ.Client": "7.2.0"
+        },
+        "runtime": {
+          "lib/net10.0/MassTransit.RabbitMqTransport.dll": {
+            "assemblyVersion": "8.5.7.0",
+            "fileVersion": "8.5.7.0"
           }
         }
       },
@@ -130,8 +162,18 @@
           }
         }
       },
-      "Play.Common/1.0.0": {
+      "Play.Catalog.Contracts/1.0.0": {
+        "runtime": {
+          "lib/net10.0/Play.Catalog.Contracts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Play.Common/1.0.1": {
         "dependencies": {
+          "MassTransit": "8.5.7",
+          "MassTransit.RabbitMQ": "8.5.7",
           "MongoDB.Driver": "3.5.2"
         },
         "runtime": {
@@ -157,6 +199,14 @@
           "lib/netstandard2.0/Polly.Extensions.Http.dll": {
             "assemblyVersion": "3.0.0.0",
             "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "RabbitMQ.Client/7.2.0": {
+        "runtime": {
+          "lib/net8.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.2.0.0"
           }
         }
       },
@@ -266,6 +316,27 @@
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
     },
+    "MassTransit/8.5.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZMJAhl7EHBhHvH1c/Jc6FZdV2sNgf5DETfxVq1Wm7i0By6o8LvrVQakBAvC7GK2ZHMJB2kmeD5YM3JPSGvT3HA==",
+      "path": "masstransit/8.5.7",
+      "hashPath": "masstransit.8.5.7.nupkg.sha512"
+    },
+    "MassTransit.Abstractions/8.5.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HdS4nzARrW34F+ftZpfykSEwmvEFD8Z+lRulwakt0YU9xg4IE3bUmbls15vuOxfC2YDtcr7y3+SQYzXx6fG/vA==",
+      "path": "masstransit.abstractions/8.5.7",
+      "hashPath": "masstransit.abstractions.8.5.7.nupkg.sha512"
+    },
+    "MassTransit.RabbitMQ/8.5.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EgT/5pBsDiSqktP+eHE7ssLW6FTfQ0Cd6Kt2Ug/VwM+VSJx7Ua/8/Hyi+HPpt3/qt40qQI5j2/s9xDOrbAkU3w==",
+      "path": "masstransit.rabbitmq/8.5.7",
+      "hashPath": "masstransit.rabbitmq.8.5.7.nupkg.sha512"
+    },
     "Microsoft.AspNet.WebApi.Client/4.0.20710": {
       "type": "package",
       "serviceable": true,
@@ -336,12 +407,19 @@
       "path": "newtonsoft.json/7.0.1",
       "hashPath": "newtonsoft.json.7.0.1.nupkg.sha512"
     },
-    "Play.Common/1.0.0": {
+    "Play.Catalog.Contracts/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wSD4m9xvOhl3wSgA96gKOD4fi/HK6veqtaDr6Iho1hQzDTwJiRcpfhRaC3r4MGRuJ9jENYzJgwMjonld3nkNtQ==",
-      "path": "play.common/1.0.0",
-      "hashPath": "play.common.1.0.0.nupkg.sha512"
+      "sha512": "sha512-3SrCsavkNqQUHJwWQvjkeuYNnIWjAJ3EguR3SrFBBc496AYijWlWOW/+i9AvnBvbLWGu7QoK7+viNeUIe3ZhWg==",
+      "path": "play.catalog.contracts/1.0.0",
+      "hashPath": "play.catalog.contracts.1.0.0.nupkg.sha512"
+    },
+    "Play.Common/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6OflvumrqIRumHMKCAB7YgxxeykU436W1lT/y67iZ1dU9YKUIzLbsGzIJYG9ynvRuqjTfXBQwaozcyu734wggg==",
+      "path": "play.common/1.0.1",
+      "hashPath": "play.common.1.0.1.nupkg.sha512"
     },
     "Polly/7.2.4": {
       "type": "package",
@@ -356,6 +434,13 @@
       "sha512": "sha512-drrG+hB3pYFY7w1c3BD+lSGYvH2oIclH8GRSehgfyP5kjnFnHKQuuBhuHLv+PWyFuaTDyk/vfRpnxOzd11+J8g==",
       "path": "polly.extensions.http/3.0.0",
       "hashPath": "polly.extensions.http.3.0.0.nupkg.sha512"
+    },
+    "RabbitMQ.Client/7.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PPQ7cF7lwbhqC4up6en1bTUZlz06YqQwJecOJzsguTtyhNA7oL5uNDZIx/h6ZfcyPZV4V3DYKSCxfm4RUFLcbA==",
+      "path": "rabbitmq.client/7.2.0",
+      "hashPath": "rabbitmq.client.7.2.0.nupkg.sha512"
     },
     "SharpCompress/0.30.1": {
       "type": "package",
