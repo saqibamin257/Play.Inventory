@@ -6,7 +6,7 @@ namespace Play.Inventory.Service.Entities
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public Guid CategoryItemId { get; set; }
+        public Guid CategoryItemId { get; set; } //this is ID of Catalog item, relationship b/w Catalog and inventory
         public int Quantity { get; set; }
         public DateTimeOffset AcquireDate { get; set; }
     }
